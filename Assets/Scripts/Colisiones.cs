@@ -16,12 +16,11 @@ public class Colisiones : MonoBehaviour
         
     }
     void OnCollisionEnter (Collision col){
-        Debug.Log(col.gameObject.name);
         if(col.gameObject.CompareTag("Player")){
             Destroy(col.gameObject);
         }
-        if(col.gameObject.CompareTag("Piso")){
-            Destroy(gameObject);
+        else if(col.gameObject.CompareTag("Piso")){
+            transform.Translate(0,7,0);
         }
     }
 }
