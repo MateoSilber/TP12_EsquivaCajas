@@ -18,9 +18,7 @@ public class Colisiones : MonoBehaviour
             int xRandom = posicionesX[Random.Range(0, posicionesX.Length)];
             transform.position = new Vector3(xRandom, 7, 0);
             GetComponent<Movimiento_Caja>().speedFall += 0.3f;
-            
 
-            
         }
     }
 }
