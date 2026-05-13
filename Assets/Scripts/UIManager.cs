@@ -1,18 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public TextMeshProUGUI textoTiempo;
+    float tiempo;
+    public bool gameOver = false;
+    public bool empezo = false;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(empezo && !gameOver){
+            tiempo += Time.deltaTime;
+            textoTiempo.text = "Tiempo:"+ tiempo.ToString("F2");
+        }
+    }
+
+    public void Play()
+    {
+        empezo = true;
     }
 }

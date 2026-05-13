@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class Colisiones : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void OnCollisionEnter(Collision col)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    void OnCollisionEnter (Collision col){
-        if(col.gameObject.CompareTag("Player")){
+        if(col.gameObject.CompareTag("Player"))
+        {
             Destroy(col.gameObject);
+            GetComponent<Movimiento_Caja>().speedFall = 0;
+            FindObjectOfType<UIManager>().gameOver = true;
         }
-        else if(col.gameObject.CompareTag("Piso")){
-            transform.Translate(0,7,0);
+        else if(col.gameObject.CompareTag("Piso"))
+        {
+            int[] posicionesX = {-2, 0, 2};
+            int xRandom = posicionesX[Random.Range(0, posicionesX.Length)];
+            transform.position = new Vector3(xRandom, 7, 0);
+            GetComponent<Movimiento_Caja>().speedFall += 0.3f;
+            
+
+            
         }
     }
 }

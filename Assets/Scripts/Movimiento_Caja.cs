@@ -14,6 +14,9 @@ public class Movimiento_Caja : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0,-speedFall * Time.deltaTime,0);
+        if(FindObjectOfType<UIManager>().empezo)
+            {
+                transform.Translate(0,-speedFall * Time.deltaTime,0);
+            }
     }
 }
